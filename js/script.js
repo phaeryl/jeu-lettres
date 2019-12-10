@@ -8,6 +8,7 @@ let randomLetter = String.fromCharCode(Math.floor((Math.random() * 25) + 97));
 let countdownNumber = document.getElementById('countdown-number');
 let countdown = 5;
 let restartGAme = document.getElementById("restartGame");
+let containerGameOverMessage = document.getElementById("containerGameOverMessage");
 
 
 //Création de l'affichage de la lettre et du score:
@@ -21,10 +22,10 @@ letterElement.textContent = randomLetter;
 let scoreElement = document.createElement("p");
 let scoreDisplay = document.getElementById("scoreDisplay");
 scoreDisplay.appendChild(scoreElement);
-scoreElement.textContent = "Score: " + score;
+scoreElement.textContent = score;
 scoreElement.className = "score"
-//Affichage de l'image d'exemple:
 
+//Affichage de l'image d'exemple:
 let exampleLetterDisplay = document.getElementById("exampleLetterDisplay")
 exampleLetterElement = document.createElement("p")
 exampleLetterElement.id = "exampleLetterElement"
@@ -33,7 +34,7 @@ exampleLetterElement.textContent = randomLetter;
 
 function changeScreen(screen1, screen2) {
   score = 0
-  scoreElement.textContent = "Score: " + score;
+  scoreElement.textContent = score;
   screen1.style.display = "flex";
   screen2.style.display = "none";
   countdown = 5;
@@ -60,27 +61,39 @@ restartGame.addEventListener("click", function () {
 });
 //Message de partie terminée
 let gameOverMessage = document.createElement("p")
-containerScreen3.appendChild(gameOverMessage)
+gameOverMessage.id = "gameOverMessage";
+containerGameOverMessage.appendChild(gameOverMessage)
 
 //Mise en place du timer
-setInterval(function () {
+timerID=setInterval(function () {
   if (isPlaying) {
     countdown--;
   }
   countdownNumber.textContent = countdown;
   if (countdown == 0 && isPlaying) {
-    changeScreen(containerScreen3, containerScreen2);
     gameOverMessage.textContent = "Votre score est de " + score + " points ! Pouvez-vous faire mieux?"
-
+    changeScreen(containerScreen3, containerScreen2);
     isPlaying = false;
   }
 }, 1000);
 
 document.addEventListener("keydown", function () {
   if (isPlaying)
-    if (event.key == randomLetter) {
+    if (event.key == randomLetter || event.key == randomLetter.toUpperCase()) {
+      clearInterval(timerID);
+      timerID=setInterval(function () {
+        if (isPlaying) {
+          countdown--;
+        }
+        countdownNumber.textContent = countdown;
+        if (countdown == 0 && isPlaying) {
+          gameOverMessage.textContent = "Votre score est de " + score + " points ! Pouvez-vous faire mieux?"
+          changeScreen(containerScreen3, containerScreen2);
+          isPlaying = false;
+        }
+      }, 1000);
       score++;
-      scoreElement.textContent = "Score: " + score;
+      scoreElement.textContent = score;
       randomLetter = String.fromCharCode(Math.floor((Math.random() * 25) + 97));
       letterElement.textContent = randomLetter
       countdown = 5;
