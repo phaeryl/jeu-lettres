@@ -1,15 +1,17 @@
 body {
-  background-image: url("../images/fond.jpeg");
+  background-image: url("../images/fond.jpg");
+  background-size: cover;
   font-family: 'Quicksand';
-  color: #fefefe;
+  color: black;
   margin: 0;
 }
-/* Screens */
+/* Screens et positions*/
 #screen1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  color:  #fefefe;
 }
 
 #screen2 {
@@ -22,23 +24,29 @@ body {
   flex-direction: column;
 }
 .screenBackground {
-  background-color: rgba(0, 0, 0, 0.40);
-  width: 50%;
+  background-color: rgba(0, 0, 0, 0.50);
+  width: 80%;
   height: 50%;
   border-radius: 5px;
+  padding-bottom: 50px;
 }
-
+.containerText {
+  display: flex;
+  justify-content: center;
+}
 /* Titles and text background */
-
 h1 {
-  background-color: #317297;
-  padding: 0.5em;
-  border-radius: 5px;
   margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  
 }
 .gameNameContainer {
   display: flex;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.30);
+  border-radius: 5px;
+  padding: 0.5em;
 }
 #exampleLetterDisplay {
   display:flex;
@@ -47,7 +55,9 @@ h1 {
   justify-content: center;
   height: 250px;
   width: 250px;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.30);
+  border-radius: 100%;
+  border: 5px #fefefe dotted;
 }
 #exampleLetterElement, #letterElement{
   font-size: 5em;
@@ -65,5 +75,16 @@ justify-content: center;
   width: 100px;
   height: 100px;
   border: 2px solid white;
-  background-color: #317297; 
+  background-color: rgba(0, 0, 0, 0.30);
+  transition: width 0.1s, height 0.3s, background-color 0.2s, border-radius 0.2s, margin-top 0.3s;
+  margin-top: 10px;
+  color: #fefefe;
+}
+#startGame:hover, #restartGame:hover
+ {
+  width: 120px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.30);
+    border-radius: 5%;
+  transition: width 0.1s, height 0.3s, background-color 0.2s, border-radius 0.2s, margin-top 0.3s;
 }
