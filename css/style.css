@@ -5,51 +5,61 @@ body {
   color: black;
   margin: 0;
 }
+
 /* Screens et positions*/
 #screen1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  color:  #fefefe;
+  color: #fefefe;
 }
 
 #screen2 {
   display: none;
   flex-direction: column;
-}
-
+  align-items: center;
+  width: 100%;
+  color: #fefefe;
+  position: relative;}
 #screen3 {
   display: none;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  color: #fefefe;
 }
+
 .screenBackground {
-  background-color: rgba(0, 0, 0, 0.50);
-  width: 80%;
-  height: 50%;
+  background: linear-gradient(90deg, rgba(117, 86, 86, 0) 0%, rgba(0,0,0,0.30) 10%, rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.30) 90%, rgba(0  ,0,0,0.0)100%);   width: 100%;
+  height: 100vh;
   border-radius: 5px;
-  padding-bottom: 50px;
 }
+
 .containerText {
   display: flex;
   justify-content: center;
 }
+
 /* Titles and text background */
 h1 {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 8px;
-  
+
 }
+
 .gameNameContainer {
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.30);
   border-radius: 5px;
   padding: 0.5em;
+
 }
-#exampleLetterDisplay {
-  display:flex;
+
+#exampleLetterDisplay, #letterDisplay {
+  display: flex;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -58,19 +68,24 @@ h1 {
   background-color: rgba(0, 0, 0, 0.30);
   border-radius: 100%;
   border: 5px #fefefe dotted;
+  margin-bottom: 15px;
 }
-#exampleLetterElement, #letterElement{
+
+#exampleLetterElement,
+#letterElement {
   font-size: 5em;
   text-transform: capitalize;
 }
 /* Buttons*/
 .containerButton {
   display: flex;
-justify-content: center;
+  justify-content: center;
+margin-top: 25px;
 }
-#startGame, #restartGame{
+
+#startGame,
+#restartGame {
   margin: 0 auto;
-  margin-top: 100px;
   border-radius: 90px;
   width: 100px;
   height: 100px;
@@ -79,12 +94,60 @@ justify-content: center;
   transition: width 0.1s, height 0.3s, background-color 0.2s, border-radius 0.2s, margin-top 0.3s;
   margin-top: 10px;
   color: #fefefe;
+text-transform: uppercase;
 }
-#startGame:hover, #restartGame:hover
- {
+
+#startGame:hover,
+#restartGame:hover {
   width: 120px;
   height: 100px;
   background-color: rgba(0, 0, 0, 0.30);
-    border-radius: 5%;
-  transition: width 0.1s, height 0.3s, background-color 0.2s, border-radius 0.2s, margin-top 0.3s;
+  border-radius: 5%;
+  transition: width 0.3s, height 0.5s, background-color 0.4s, border-radius 0.4s;
+}
+#gameInfoContainer{
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  top: 100px;
+}
+#countdown {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  border-radius: 90px;
+  width: 75px;
+  height: 75px;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.30);
+}
+#scoreDisplay {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  border-radius: 90px;
+  width: 75px;
+  height: 75px;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.30);  
+}
+#gameOverMessage, #rules {
+color: white;
+background-color: rgba(0, 0, 0, 0.3);
+border-radius: 0 0 5px 5px;
+text-align: center;
+width: 50%;
+margin: auto;
+padding: 1em;
+
+}
+.score {
+  color: rgb(133, 231, 133);
+  font-size: 2em;
+}
+#countdown p {
+  font-size: 2em;
+  color: #fefefe;
 }
