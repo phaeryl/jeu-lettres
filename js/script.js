@@ -65,7 +65,7 @@ gameOverMessage.id = "gameOverMessage";
 containerGameOverMessage.appendChild(gameOverMessage)
 
 //Mise en place du timer
-timerID=setInterval(function () {
+timerID = setInterval(function () {
   if (isPlaying) {
     countdown--;
   }
@@ -78,10 +78,15 @@ timerID=setInterval(function () {
 }, 1000);
 
 document.addEventListener("keydown", function () {
+  if (isPlaying==false){
+    if (event.key == exampleLetterElement.textContent || event.key == exampleLetterElement.textContent.toUpperCase()) {
+      exampleLetterElement.textContent = String.fromCharCode(Math.floor((Math.random() * 25) + 97));
+
+    }}
   if (isPlaying)
     if (event.key == randomLetter || event.key == randomLetter.toUpperCase()) {
       clearInterval(timerID);
-      timerID=setInterval(function () {
+      timerID = setInterval(function () {
         if (isPlaying) {
           countdown--;
         }
