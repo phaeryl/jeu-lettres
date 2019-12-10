@@ -1,0 +1,1 @@
+The design of this game is not done yet, it's ugly, but it works !
