@@ -4,10 +4,13 @@ let containerScreen2 = document.getElementById("screen2");
 let containerScreen3 = document.getElementById("screen3");
 let containerScreen4 = document.getElementById("screen4");
 let startGame = document.getElementById("startGame");
+
 let randomLetter = String.fromCharCode(Math.floor((Math.random() * 25) + 97));
 let countdownNumber = document.getElementById('countdown-number');
 let countdown = 5;
-let restartGAme = document.getElementById("restartGame");
+let restartGame = document.getElementById("restartGame");
+let backToHome = document.getElementById("backToHome");
+
 let containerGameOverMessage = document.getElementById("containerGameOverMessage");
 
 
@@ -59,6 +62,12 @@ restartGame.addEventListener("click", function () {
   isPlaying = true;
   countdown = 5;
 });
+
+backToHome.addEventListener("click", function () {
+  containerScreen3.style.display = "none";
+  containerScreen1.style.display = "flex";
+  isPlaying = false;
+});
 //Message de partie terminée
 let gameOverMessage = document.createElement("p")
 gameOverMessage.id = "gameOverMessage";
@@ -78,11 +87,12 @@ timerID = setInterval(function () {
 }, 1000);
 
 document.addEventListener("keydown", function () {
-  if (isPlaying==false){
+  if (isPlaying == false) {
     if (event.key == exampleLetterElement.textContent || event.key == exampleLetterElement.textContent.toUpperCase()) {
       exampleLetterElement.textContent = String.fromCharCode(Math.floor((Math.random() * 25) + 97));
 
-    }}
+    }
+  }
   if (isPlaying)
     if (event.key == randomLetter || event.key == randomLetter.toUpperCase()) {
       clearInterval(timerID);
