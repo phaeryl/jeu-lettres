@@ -1,4 +1,3 @@
-The design of this game is not done yet, it's ugly, but it works !  
 Timer will be decreased as soon as the score reach a certain number of points.  
 0 ~ 9 : 5 seconds  
 10 ~ 24 : 4 seconds  
